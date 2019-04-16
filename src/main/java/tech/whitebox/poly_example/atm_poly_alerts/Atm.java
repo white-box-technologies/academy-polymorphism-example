@@ -13,8 +13,16 @@ public class Atm {
 
 
     public Atm (){
+        createDrawers();
+        autowiredOnAlertsList();
+    }
+
+    private void createDrawers() {
         IntStream.range(0,denominations.size())
                 .forEach(i ->drawers.add(new AtmDrawer(denominations.get(i),stock.get(i))) );
+    }
+
+    private void autowiredOnAlertsList() {
         Reflections reflection = new Reflections("tech.whitebox.poly_example.atm_poly_alerts");
         Set<Class<? extends AtmAlerts>> atmAlerts = reflection.getSubTypesOf(AtmAlerts.class);
         atmAlerts.forEach(clazz -> {

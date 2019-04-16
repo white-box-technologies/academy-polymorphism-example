@@ -12,4 +12,10 @@ public class AtmDrawer {
     public Integer remainingValue(){
         return denomination * stock;
     }
+
+    public Integer getStock() {return stock; }
+
+    public String toString() {
+        return "Drawer for banknotes of " + this.denomination + " RON.";
+    }
 }
